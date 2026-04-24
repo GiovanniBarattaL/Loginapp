@@ -14,4 +14,8 @@ interface APIService {
     fun autenticar(
         @Body login: Login
     ): Call<Boolean>
+
+    @POST("/buscarporemail")
+    fun buscarporemail(@Body login: Login
+    ): Call<Usuario>
 }

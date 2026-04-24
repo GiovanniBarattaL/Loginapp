@@ -50,7 +50,7 @@
         android:id="@+id/btncadastro"
         android:layout_width="275dp"
         android:layout_height="49dp"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#454444"
         android:text="Cadastre-se"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
