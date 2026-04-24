@@ -5,14 +5,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.loginapp.model.Login
+import com.example.loginapp.network.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+    val apiService = ApiClient.instance
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,8 +31,38 @@ class MainActivity : AppCompatActivity() {
         }
         val btnLogin = findViewById<Button>(R.id.Loginbot)
         btnLogin.setOnClickListener {
-            val intent = Intent(this, Home::class.java)
-            startActivity(intent)
+            val email = findViewById<EditText>(R.id.emaillogin).text.toString()
+            val senha = findViewById<EditText>(R.id.senhalogin).text.toString()
+            val login = Login(email = email, senha = senha)
+
+
+            apiService.autenticar(login).enqueue(object : Callback<Boolean>{
+                override fun onResponse(
+                    call: Call<Boolean?>,
+                    response: Response<Boolean?>
+                ) {
+                    if (response.isSuccessful){
+                        val autenticado = response.body()
+                        if (autenticado == true){
+                            val intent = Intent(this@MainActivity, Home::class.java)
+                            startActivity(intent)
+                        }else{
+                            Toast.makeText(this@MainActivity, "Usuario ou senha inválido!!",Toast.LENGTH_LONG).show()
+                        }
+                    }
+
+                }
+                override fun onFailure(call: Call<Boolean?>, t: Throwable) {
+                    Toast.makeText(this@MainActivity,
+                        "Erro na conexão",
+                        Toast.LENGTH_SHORT).show()
+
+                }
+
+            })
+
+
+
         }
         val btncadastro = findViewById<Button>(R.id.Loginbot2)
         btncadastro.setOnClickListener {

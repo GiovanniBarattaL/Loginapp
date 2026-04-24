@@ -1,5 +1,6 @@
 package com.example.loginapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -56,6 +57,10 @@ class Cadastro : AppCompatActivity() {
                                 this@Cadastro,
                                 "Cadastro realizado",
                                 Toast.LENGTH_LONG).show()
+
+                            val intent = Intent(this@Cadastro, MainActivity::class.java)
+                            startActivity(intent)
+
                         }
                     }
 
