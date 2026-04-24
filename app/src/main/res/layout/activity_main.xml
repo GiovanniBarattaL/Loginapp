@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEA09898"
-    android:backgroundTint="#EEA09898"
+    android:backgroundTint="#EEFFFFFF"
     tools:context=".MainActivity">
 
     <View
@@ -14,7 +14,7 @@
         android:layout_width="377dp"
         android:layout_height="684dp"
         android:background="?android:attr/fastScrollPreviewBackgroundLeft"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#EEA09898"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/biz_udpgothic"
         android:text="Tela Login"
+        android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,29 +39,33 @@
 
     <EditText
         android:id="@+id/emaillogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="365dp"
+        android:layout_height="51dp"
         android:layout_marginTop="40dp"
+        android:background="?android:attr/fastScrollPreviewBackgroundRight"
+        android:backgroundTint="#FDFDFD"
         android:ems="10"
         android:hint="Digite seu e-mail"
         android:inputType="text"
         android:textColorHint="#C2818181"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/senhalogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="365dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:background="?android:attr/fastScrollPreviewBackgroundRight"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:hint="Digite sua senha"
         android:inputType="textPassword"
         android:textColorHint="#CC818181"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emaillogin" />
 
@@ -71,9 +76,10 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="36dp"
         android:layout_marginRight="40dp"
-        android:backgroundTint="#EEA09898"
+        android:backgroundTint="#EEFFFFFF"
         android:elevation="@dimen/cardview_compat_inset_shadow"
         android:text="Login"
+        android:textColor="#524848"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,8 +92,9 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="104dp"
         android:layout_marginRight="40dp"
-        android:backgroundTint="#EEA09898"
+        android:backgroundTint="#EEFFFFFF"
         android:text="Cadastro"
+        android:textColor="#524848"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,31 +102,16 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="128dp"
-        android:layout_height="172dp"
+        android:id="@+id/imageView10"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/img" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="317dp"
-        android:layout_height="47dp"
-        android:fontFamily="@font/biz_udpgothic"
-        android:text="CondomínioMax"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.574"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:srcCompat="@drawable/oii" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
