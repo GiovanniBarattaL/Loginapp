@@ -11,37 +11,36 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="377dp"
-        android:layout_height="684dp"
+        android:layout_width="396dp"
+        android:layout_height="636dp"
         android:background="?android:attr/fastScrollPreviewBackgroundLeft"
-        android:backgroundTint="#EEA09898"
+        android:backgroundTint="#D0CCCC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/biz_udpgothic"
-        android:text="Tela Login"
+        android:fontFamily="@font/cormorant_bold"
+        android:text="Entrar"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.348" />
 
     <EditText
         android:id="@+id/emaillogin"
         android:layout_width="365dp"
         android:layout_height="51dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:background="?android:attr/fastScrollPreviewBackgroundRight"
         android:backgroundTint="#FDFDFD"
         android:ems="10"
@@ -57,7 +56,7 @@
         android:id="@+id/senhalogin"
         android:layout_width="365dp"
         android:layout_height="51dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:background="?android:attr/fastScrollPreviewBackgroundRight"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
@@ -74,32 +73,33 @@
         android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="48dp"
         android:layout_marginRight="40dp"
-        android:backgroundTint="#EEFFFFFF"
+        android:backgroundTint="#EE000000"
         android:elevation="@dimen/cardview_compat_inset_shadow"
         android:text="Login"
-        android:textColor="#524848"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/senhalogin" />
 
     <Button
         android:id="@+id/Loginbot2"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginRight="40dp"
-        android:backgroundTint="#EEFFFFFF"
-        android:text="Cadastro"
-        android:textColor="#524848"
+        android:layout_width="208dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#D0CCCC"
+        android:fontFamily="@font/cormorant_bold"
+        android:text="Cadastre-se"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#D0CCCC"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.719"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senhalogin"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.725" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -112,6 +112,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/oii" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="163dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/cormorant_bold"
+        android:text="Novo por aqui?"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.725" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

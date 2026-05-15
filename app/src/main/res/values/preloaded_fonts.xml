@@ -3,6 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/biz_udpgothic</item>
         <item>@font/carter_one</item>
+        <item>@font/cinzel_decorative</item>
+        <item>@font/cinzel_semibold</item>
         <item>@font/commissioner_bold</item>
+        <item>@font/cormorant_bold</item>
     </array>
 </resources>
