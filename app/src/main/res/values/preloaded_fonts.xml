@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/adamina</item>
+        <item>@font/ar_one_sans</item>
         <item>@font/biz_udpgothic</item>
         <item>@font/carter_one</item>
         <item>@font/cinzel_decorative</item>
@@ -9,5 +10,6 @@
         <item>@font/commissioner_bold</item>
         <item>@font/cormorant_bold</item>
         <item>@font/cormorant_garamond_bold</item>
+        <item>@font/questrial</item>
     </array>
 </resources>

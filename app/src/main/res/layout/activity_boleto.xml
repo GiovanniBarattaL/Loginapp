@@ -8,7 +8,7 @@
     tools:context=".Boleto">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarboletos"
         android:layout_width="425dp"
         android:layout_height="wrap_content"
         android:background="#EEA09898"
@@ -23,4 +23,15 @@
         app:layout_constraintVertical_bias="0.0"
         app:title="Lista De Boletos"
         app:titleTextColor="#FFFFFF" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBoleto"
+        android:layout_width="409dp"
+        android:layout_height="665dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarboletos" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

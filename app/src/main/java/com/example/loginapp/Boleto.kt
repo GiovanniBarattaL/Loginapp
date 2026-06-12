@@ -3,7 +3,9 @@ package com.example.loginapp
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
+import android.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,6 +22,20 @@ class Boleto : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val toolbarboleto = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarboletos)
+        setSupportActionBar(toolbarboleto)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish() // Volta para a tela anterior
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
+    }
+
+
