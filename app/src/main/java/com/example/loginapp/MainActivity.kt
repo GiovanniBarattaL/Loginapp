@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -90,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
 
             }
-            val btncadastro = findViewById<Button>(R.id.Loginbot2)
+            val btncadastro = findViewById<TextView>(R.id.Loginbot2)
             btncadastro.setOnClickListener {
                 val intent = Intent(this, Cadastro::class.java)
                 startActivity(intent)

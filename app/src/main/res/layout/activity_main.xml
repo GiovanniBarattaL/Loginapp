@@ -83,12 +83,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/senhalogin" />
 
-    <Button
+    <TextView
         android:id="@+id/Loginbot2"
         android:layout_width="208dp"
         android:layout_height="49dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="#D0CCCC"
+        android:clickable="true"
         android:fontFamily="@font/cormorant_bold"
         android:text="Cadastre-se"
         android:textColor="#FFFFFF"
@@ -96,10 +97,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.707"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.73" />
 
     <ImageView
         android:id="@+id/imageView10"
