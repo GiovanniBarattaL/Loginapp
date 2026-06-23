@@ -27,5 +27,25 @@ class Home : AppCompatActivity() {
             val intent = Intent(this, Boleto::class.java)
             startActivity(intent)
     }
-}
+        val btnReserva = findViewById<Button>(R.id.btnReserva)
+        btnReserva.setOnClickListener {
+            val intent = Intent(this, Reserva::class.java)
+            startActivity(intent)
+        }
+        val btnAutorizarVisitante = findViewById<Button>(R.id.btnAutorizacao)
+        btnAutorizarVisitante.setOnClickListener {
+            val intent = Intent(this, AutorizarVisitante::class.java)
+            startActivity(intent)
+        }
+        val btnMural= findViewById<Button>(R.id.btnMural)
+        btnMural.setOnClickListener {
+            val intent = Intent(this, Mural::class.java)
+            startActivity(intent)
+        }
+        val btnPrestarConta= findViewById<Button>(R.id.btnPrestContas)
+        btnPrestarConta.setOnClickListener {
+            val intent = Intent(this, PrestarConta::class.java)
+            startActivity(intent)
+        }
+       }
 }

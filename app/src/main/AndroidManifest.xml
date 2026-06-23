@@ -15,16 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginApp">
         <activity
-            android:name=".MainActivity"
+            android:name=".PrestarConta"
+            android:exported="false" />
+        <activity
+            android:name=".Mural"
+            android:exported="false" />
+        <activity
+            android:name=".AutorizarVisitante"
+            android:exported="false" />
+        <activity
+            android:name=".Reserva"
+            android:exported="false" />
+        <activity
+            android:name=".Boleto"
             android:exported="false" />
         <activity
             android:name=".Cadastro"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Boleto"
+            android:name=".Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

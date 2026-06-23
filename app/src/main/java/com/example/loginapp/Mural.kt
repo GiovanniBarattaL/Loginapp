@@ -1,6 +1,5 @@
 package com.example.loginapp
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -9,38 +8,38 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.loginapp.adapter.BoletoAdapter
-import com.example.loginapp.model.Boleto
+import com.example.loginapp.adapter.MuralAdapter
+import com.example.loginapp.adapter.ReservaAdapter
 
-class Boleto : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+class Mural : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_boleto)
+        setContentView(R.layout.activity_mural)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val toolbarboleto = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarboletos)
-        setSupportActionBar(toolbarboleto)
+        val toolbarmural = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarMural)
+        setSupportActionBar(toolbarmural)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-        val rc = findViewById<RecyclerView>(R.id.recyclerBoleto)
+        val rc = findViewById<RecyclerView>(R.id.recyclerMural)
         rc.layoutManager = LinearLayoutManager(this)
-        val boletos = listOf(
-            Boleto("1","Taxa Condomínio Maio",2222.09,"4/07/2026"),
-            Boleto("2","Taxa Condomínio Abril",444.04,"4/07/2027"),
-            Boleto("3","Taxa Condomínio Junho",2234.69,"4/10/2026"),
-            Boleto("4","Taxa Condomínio Julho",899.50,"8/03/2026")
-
+        val Mural = listOf(
+            com.example.loginapp.model.Mural("Novo Bicecletário"),
+            com.example.loginapp.model.Mural("Alarme de Incêndio"),
+            com.example.loginapp.model.Mural("Portão de Veículos"),
+            com.example.loginapp.model.Mural("Festa Junina"),
+            com.example.loginapp.model.Mural("Academia Reformada")
         )
-        rc.adapter = BoletoAdapter(boletos)
-        }
+        rc.adapter = MuralAdapter(Mural)
+    }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -51,6 +50,4 @@ class Boleto : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    }
-
-
+}

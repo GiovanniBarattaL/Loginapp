@@ -1,8 +1,8 @@
 package com.example.loginapp.model
 
-data class Boleto(
-    val id: String,
+data class PrestContas(
     val descricao: String,
     val valor: Double,
-    val vencimento: String
+    val data: String,
+    val tipo: String
 )

@@ -9,38 +9,39 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.loginapp.adapter.BoletoAdapter
-import com.example.loginapp.model.Boleto
+import com.example.loginapp.adapter.ReservaAdapter
 
-class Boleto : AppCompatActivity() {
+class Reserva : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_boleto)
+        setContentView(R.layout.activity_reserva)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val toolbarboleto = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarboletos)
-        setSupportActionBar(toolbarboleto)
+        val toolbarreserva = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarreserva)
+        setSupportActionBar(toolbarreserva)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-        val rc = findViewById<RecyclerView>(R.id.recyclerBoleto)
+        val rc = findViewById<RecyclerView>(R.id.recyclerReserva)
         rc.layoutManager = LinearLayoutManager(this)
-        val boletos = listOf(
-            Boleto("1","Taxa Condomínio Maio",2222.09,"4/07/2026"),
-            Boleto("2","Taxa Condomínio Abril",444.04,"4/07/2027"),
-            Boleto("3","Taxa Condomínio Junho",2234.69,"4/10/2026"),
-            Boleto("4","Taxa Condomínio Julho",899.50,"8/03/2026")
-
+        val Reserva = listOf(
+            com.example.loginapp.model.Reserva("Academia"),
+            com.example.loginapp.model.Reserva("Brinquedoteca"),
+            com.example.loginapp.model.Reserva("Churrasqueira"),
+            com.example.loginapp.model.Reserva("Salão de Festa"),
+            com.example.loginapp.model.Reserva("Salão de Jogos")
         )
-        rc.adapter = BoletoAdapter(boletos)
-        }
+        rc.adapter = ReservaAdapter(Reserva)
+    }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -51,6 +52,6 @@ class Boleto : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    }
+}
 
 

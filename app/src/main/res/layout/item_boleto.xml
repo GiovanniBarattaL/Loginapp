@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="8dp"
+app:cardCornerRadius="12dp"
+app:cardBackgroundColor="#F1EEEE">
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txtdescricao"
@@ -23,7 +33,8 @@
         android:fontFamily="@font/questrial"
         android:text="R$ 1000,00"
         android:textSize="25sp" />
-     <TextView
+
+    <TextView
         android:id="@+id/txtvencimento"
         android:text="12/06/2028"
         android:textSize="25sp"
@@ -34,7 +45,6 @@
         android:fontFamily="@font/questrial"
         />
 
-
-
-
 </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
