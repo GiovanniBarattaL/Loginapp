@@ -13,10 +13,11 @@ class PrestContasAdapter(private val prestcontas: List<PrestContas>) :
     RecyclerView.Adapter<PrestContasAdapter.PrestContasViewHolder>() {
 
     class PrestContasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nome: TextView = itemView.findViewById(R.id.txtdescricao)
-        val valor: TextView = itemView.findViewById(R.id.txtvalor)
+        val nome: TextView = itemView.findViewById(R.id.txtDescricaoconta)
+        val valor: TextView = itemView.findViewById(R.id.txtValorconta)
+        val data: TextView = itemView.findViewById(R.id.txtDataconta)
 
-        val vencimento: TextView = itemView.findViewById(R.id.txtvencimento)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PrestContasViewHolder {
@@ -31,7 +32,8 @@ class PrestContasAdapter(private val prestcontas: List<PrestContas>) :
 
         holder.nome.text = prestcontas.descricao
         holder.valor.text = prestcontas.valor.toString()
-        holder.vencimento.text = prestcontas.vencimento
+        holder.data.text = prestcontas.data
+
     }
 
     override fun getItemCount(): Int {

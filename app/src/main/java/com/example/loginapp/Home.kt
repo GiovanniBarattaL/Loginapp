@@ -47,5 +47,15 @@ class Home : AppCompatActivity() {
             val intent = Intent(this, PrestarConta::class.java)
             startActivity(intent)
         }
+        val btnContatos= findViewById<Button>(R.id.btnContatoPort)
+        btnContatos.setOnClickListener {
+            val intent = Intent(this, Contatos::class.java)
+            startActivity(intent)
+        }
+        val btnMudancas= findViewById<Button>(R.id.btnMudancas)
+        btnMudancas.setOnClickListener {
+            val intent = Intent(this, Mudancas::class.java)
+            startActivity(intent)
+        }
        }
 }

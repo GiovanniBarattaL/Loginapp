@@ -16,7 +16,10 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loginapp.adapter.BoletoAdapter
+import com.example.loginapp.adapter.PrestContasAdapter
 import com.example.loginapp.model.Boleto
+import com.example.loginapp.model.PrestContas
+import com.example.loginapp.network.ApiClient
 
 class PrestarConta : AppCompatActivity() {
 
@@ -26,6 +29,10 @@ class PrestarConta : AppCompatActivity() {
 
     private var totalRecebido = 0.0
     private var totalGasto = 0.0
+
+    private lateinit var adapter: PrestContasAdapter
+    private val listaPrestContas =
+        mutableListOf<PrestContas>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,17 +49,18 @@ class PrestarConta : AppCompatActivity() {
             )
             insets
         }
-        val rc = findViewById<RecyclerView>(R.id.recyclerPrestContas)
-        rc.layoutManager = LinearLayoutManager(this)
-        val boletos = listOf(
-            Boleto("1","Taxa Condomínio Maio",2222.09,"4/07/2026"),
-            Boleto("2","Taxa Condomínio Abril",444.04,"4/07/2027"),
-            Boleto("3","Taxa Condomínio Junho",2234.69,"4/10/2026"),
-            Boleto("4","Taxa Condomínio Julho",899.50,"8/03/2026")
 
-        )
-        rc.adapter = BoletoAdapter(boletos)
+        val rc =
+            findViewById<RecyclerView>(
+                R.id.recyclerPrestContas
+            )
+        adapter =
+            PrestContasAdapter(listaPrestContas)
 
+        rc.layoutManager =
+            LinearLayoutManager(this)
+
+        rc.adapter = adapter
 
         val toolbar = findViewById<Toolbar>(R.id.toolbarPrestarConta)
         setSupportActionBar(toolbar)
@@ -68,8 +76,7 @@ class PrestarConta : AppCompatActivity() {
         }
 
         atualizarCards()
-
-
+        carregarLancamentos()
     }
     private fun mostrarDialogLancamento() {
 
@@ -165,14 +172,54 @@ class PrestarConta : AppCompatActivity() {
 
             val valor = valorTexto.toDouble()
 
-            if (rbEntrada.isChecked) {
-                totalRecebido += valor
-            } else {
-                totalGasto += valor
-            }
+            val tipo =
+                if (rbEntrada.isChecked)
+                    "Entrada"
+                else
+                    "Saída"
 
-            atualizarCards()
-            dialog.dismiss()
+            val lancamento =
+                PrestContas(
+                    descricao = descricao,
+                    valor = valor,
+                    data = btnData.text.toString(),
+                    tipo = tipo
+                )
+            ApiClient.instance
+                .salvarPrestConta(lancamento)
+                .enqueue(object :
+                    retrofit2.Callback<PrestContas> {
+
+                    override fun onResponse(
+                        call: retrofit2.Call<PrestContas>,
+                        response: retrofit2.Response<PrestContas>
+                    ) {
+
+                        if (response.isSuccessful) {
+
+                            Toast.makeText(
+                                this@PrestarConta,
+                                "Lançamento salvo!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            carregarLancamentos()
+                            dialog.dismiss()
+                        }
+                    }
+
+                    override fun onFailure(
+                        call: retrofit2.Call<PrestContas>,
+                        t: Throwable
+                    ) {
+
+                        Toast.makeText(
+                            this@PrestarConta,
+                            "Erro ao salvar.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                })
         }
 
         dialog.show()
@@ -184,6 +231,58 @@ class PrestarConta : AppCompatActivity() {
         txtRecebido.text = "R$ %.2f".format(totalRecebido)
         txtGasto.text = "R$ %.2f".format(totalGasto)
         txtSaldo.text = "R$ %.2f".format(saldo)
+    }
+
+    private fun carregarLancamentos() {
+
+        ApiClient.instance
+            .listarPrestContas()
+            .enqueue(object :
+                retrofit2.Callback<List<PrestContas>> {
+
+                override fun onResponse(
+                    call: retrofit2.Call<List<PrestContas>>,
+                    response: retrofit2.Response<List<PrestContas>>
+                ) {
+
+                    if (response.isSuccessful) {
+
+                        val lista =
+                            response.body() ?: emptyList()
+
+                        listaPrestContas.clear()
+                        listaPrestContas.addAll(lista)
+
+                        adapter.notifyDataSetChanged()
+
+                        totalRecebido = 0.0
+                        totalGasto = 0.0
+
+                        for (item in lista) {
+
+                            if (item.tipo == "Entrada") {
+                                totalRecebido += item.valor
+                            } else {
+                                totalGasto += item.valor
+                            }
+                        }
+
+                        atualizarCards()
+                    }
+                }
+
+                override fun onFailure(
+                    call: retrofit2.Call<List<PrestContas>>,
+                    t: Throwable
+                ) {
+
+                    Toast.makeText(
+                        this@PrestarConta,
+                        "Erro ao carregar dados",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
     }
 
     override fun onSupportNavigateUp(): Boolean {
