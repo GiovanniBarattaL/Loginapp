@@ -13,6 +13,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import android.app.DatePickerDialog
 import java.util.Calendar
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.loginapp.adapter.BoletoAdapter
+import com.example.loginapp.model.Boleto
 
 class PrestarConta : AppCompatActivity() {
 
@@ -38,11 +42,21 @@ class PrestarConta : AppCompatActivity() {
             )
             insets
         }
+        val rc = findViewById<RecyclerView>(R.id.recyclerPrestContas)
+        rc.layoutManager = LinearLayoutManager(this)
+        val boletos = listOf(
+            Boleto("1","Taxa Condomínio Maio",2222.09,"4/07/2026"),
+            Boleto("2","Taxa Condomínio Abril",444.04,"4/07/2027"),
+            Boleto("3","Taxa Condomínio Junho",2234.69,"4/10/2026"),
+            Boleto("4","Taxa Condomínio Julho",899.50,"8/03/2026")
+
+        )
+        rc.adapter = BoletoAdapter(boletos)
+
 
         val toolbar = findViewById<Toolbar>(R.id.toolbarPrestarConta)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 
         txtRecebido = findViewById(R.id.txtRecebido)
         txtGasto = findViewById(R.id.txtGasto)

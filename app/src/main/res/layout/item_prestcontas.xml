@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtDescricao"
+            android:id="@+id/txtDescricaoconta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descrição"
@@ -23,13 +23,13 @@
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/txtData"
+            android:id="@+id/txtDataconta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="23/06/2026"/>
 
         <TextView
-            android:id="@+id/txtValor"
+            android:id="@+id/txtValorconta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="R$ 100,00"
